@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tudo sobre o Google Glass</title>
+    <!--Ligação para o arquivo CSS-->
+    <link href="_css/estilo.css" rel="stylesheet"/>
+    <link href="_css/form.css" rel="stylesheet"/>
+</head>
+
+<!--Script para mudar fotos dinamicamente-->
+<script src="_javascript/funcoes.js"></script>
+<noscript>Você precisa ativar o JavaScript para obter uma melhor experiência neste site</noscript>
+<script>
+    function calc_total() {
+        let qtd = parseInt(document.getElementById('cQtd').value)
+        document.getElementById('cTot').value = qtd * 1500
+    }
+</script>
+
+<body>
+<!--Interface-->
+<div id="interface">
+
+    <!--Cabeçalho-->
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Google Glass</h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+        <img alt="Imagem de Contato" id="icone" src="_imagens/contato.png"/>
+
+        <!--Menu-->
+        <nav class="m" id="menu">
+            <h1>Menu Principal</h1>
+            <ul>
+                <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                <li ><a href="fale-conosco.html">Fale conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="corpo-full">
+
+        <article id="noticia-principal">
+
+            <header id="cabecalho-artigo">
+                <hgroup>
+                    <h3>Fale Conosco > Contato</h3>
+                    <h1>Formulário de Contato</h1>
+                    <h2>por Gerson Gaspar</h2>
+                    <h3 class="direita">Atualizado em 06/Outubro/2020</h3>
+                </hgroup>
+            </header>
+
+            <form method="post" id="fContacto" oninput="calc_total();">
+
+                <fieldset id="usuario" class="campos"><legend class="legendas">Identificação do Usuário</legend>
+                    <p><label for="cNome">Nome:</label>
+                        <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" class="entrada"/></p>
+                    <p><label for="cSenha">Senha:</label>
+                        <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos" class="entrada"/></p>
+                    <p><label for="cMail">E-mail:</label>
+                        <input type="email" name="tMail" id="cMail" size="20" maxlength="40" class="entrada"/></p>
+                    <fieldset id="sexo" class="campos"><legend class="legendas">Sexo</legend>
+                        <input type="radio" name="tSexo" id="cMasc" checked class="entrada"/><label for="cMasc">Masculino</label><br/>
+                        <input type="radio" name="tSexo" id="cFem" class="entrada"/><label for="cFem">Feminino</label>
+                    </fieldset>
+                    <p><label for="cNasc">Data de Nascimento:</label>
+                        <input type="date" name="tNasc" id="cNasc" class="entrada"/></p>
+                </fieldset>
+
+                <fieldset id="endereco" class="campos"><legend class="legendas">Endereço do Usuário</legend>
+                    <p><label for="cNum">Número:</label>
+                        <input type="number" name="tNum" id="cNum" min="0" max="99999" class="entrada"/></p>
+                    <p><label for="cRua">Logradouro:</label>
+                        <input type="text" name="tRua" id="cRua" size="13" maxlength="80" pattern="Rua, Av, Trav, ..." class="entrada"/></p>
+                    <p><label for="cBairro">Bairro:</label>
+                        <input type="text" name="tBairro" id="cBairro" class="entrada"/></p>
+                    <p><label for="cMunicipio">Município:</label>
+                        <input type="text" name="tMunicipio" id="cMunicipio" size="20" maxlength="40" list="Municipios" class="entrada"/></p>
+                        <datalist id="Municipios">
+                            <option value="Huambo"></option>
+                            <option value="Luanda"></option>
+                            <option value="Benguela"></option>
+                        </datalist>
+                    <p><label for="cProv">Província:</label>
+                        <select name="tProv" id="cProv">
+                            <optgroup label="Norte">
+                                <option value="LD">Luanda</option>
+                                <option value="CB">Cabinda</option>
+                                <option value="UG">Uíge</option>
+                            </optgroup>
+                            <optgroup label="Centro">
+                                <option value="HBO">Huambo</option>
+                                <option value="BG">Benguela</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <fieldset id="mensagem" class="campos"><legend class="legendas">Mensagem do Usuário</legend>
+                    <p><label for="cUrg">Grau de Urgência:</label>
+                        Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2" class="entrada"/>Máx</p>
+                    <p><label for="cMsg">Mensagem:</label>
+                        <textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Deixe aqui a sua mensagem" class="entrada"></textarea></p>
+                </fieldset>
+
+                <fieldset id="pedido" class="campos"><legend class="legendas">Quero um Google Glass</legend>
+                    <p><input type="checkbox" name="tPedido" id="cPedido" checked class="entrada"/>
+                        <label for="cPedido">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                    <p><label for="cCor">Cor:</label>
+                        <input type="color" name="tCor" id="cCor" value="#0000FF" class="entrada"/></p>
+                    <p><label for="cQtd">Quantidade:</label>
+                        <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0" class="entrada"/></p>
+                    <p><label for="cTot">Preço Total: $</label>
+                        <input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly class="entrada"/></p>
+                </fieldset>
+
+
+                <input type="image" name="tEnviar" src="_imagens/botao-enviar.png" alt="Botão Enviar" class="entrada"/>
+            </form>
+
+        </article>
+    </section>
+
+    <!--Rodapé-->
+    <footer id="rodape">
+
+        <p>Copyright &copy; 2020 - by Gerson Gaspar<br/>
+            <a href="http://facebook.com/gersonmorais.gaspar" target="_blank"> Facebook </a> |
+            <a href="http://twitter.com/gerson_morais9" target="_blank">Twitter</a>
+        </p>
+    </footer>
+</div>
+</body>
+</html>
